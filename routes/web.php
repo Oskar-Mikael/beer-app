@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\BeerListController;
+use App\Http\Controllers\UserController;
+use App\Models\BeerList;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +23,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [UserController::class, 'index']);
+
+//List Routes
+Route::get('/create-list', [BeerListController::class, 'create'])->name('list.create');
+Route::get('/list/{list}', [BeerListController::class, 'show'])->name('list.show');
+Route::post('/create-list', [BeerListController::class, 'store'])->name('list.store');

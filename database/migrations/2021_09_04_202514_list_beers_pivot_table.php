@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBeerListsTable extends Migration
+class ListBeersPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateBeerListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('beer_lists', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
-            $table->integer('user_id');
-            $table->timestamps();
+        Schema::create('list_beers_pivot', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('beer_id');
+            $table->unsignedBigInteger('list_id');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateBeerListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beer_lists');
+        Schema::dropIfExists('list_beers_pivot');
     }
 }
