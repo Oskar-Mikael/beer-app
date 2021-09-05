@@ -19,7 +19,7 @@ class BeerListController extends Controller
     {
         $beers = Beer::all();
 
-        $listBeers = $list->beer()->sortable()->paginate(5);
+        $listBeers = $list->beer()->sortable()->paginate(100);
 
         return view('list.show', compact('list', 'beers', 'listBeers'));
     }
