@@ -35,19 +35,19 @@
             <tr class="border-black border-2 text-xl">
                 <th class="border-black border-r-2 px-4">
                     @sortablelink('beer')
-                    <img class="w-1/6 float-right mt-1" src="/storage/sort-arrows-couple-pointing-up-and-down.png"/>
+                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
                 </th>
                 <th class="border-black border-r-2 px-4">
                     @sortablelink('rating')
-                    <img class="w-1/6 float-right mt-1" src="/storage/sort-arrows-couple-pointing-up-and-down.png"/>
+                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
                 </th>
                 <th class="border-black border-r-2 px-4">
                     @sortablelink('country')
-                    <img class="w-1/6 float-right mt-1" src="/storage/sort-arrows-couple-pointing-up-and-down.png"/>
+                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
                 </th>
                 <th class="border-black border-r-2 px-4">
                     @sortablelink('type')
-                    <img class="w-1/6 float-right mt-1" src="/storage/sort-arrows-couple-pointing-up-and-down.png"/>
+                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
                 </th>
             </tr>
             @foreach ($listBeers as $beer)
