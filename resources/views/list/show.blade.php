@@ -28,7 +28,7 @@
             </select>
             <br>
             <button type="submit" class="text-lg mt-6 bg-green-700 px-2 py-1 rounded-md text-white">
-                Add beer
+                Add Beer
             </button>
         </form>
         <table class="mx-auto border-2 border-black text-center my-10">
