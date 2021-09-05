@@ -14,7 +14,7 @@ class CreateBeersTable extends Migration
     public function up()
     {
         Schema::create('beers', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->id();
             $table->string('beer');
             $table->integer('rating');
             $table->string('country');

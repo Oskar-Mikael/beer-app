@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beer;
 use App\Models\BeerList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,9 @@ class BeerListController extends Controller
 {
     public function show(BeerList $list)
     {
+        $beers = Beer::all();
 
-        return view('list.show', compact('list'));
+        return view('list.show', compact('list', 'beers'));
     }
 
     public function create()
@@ -32,5 +34,15 @@ class BeerListController extends Controller
         $list->save();
 
         return redirect('/profile');
+    }
+
+    public function addItem(Request $request, $id)
+    {
+        $beerId = $request->beer;
+        $list = BeerList::findOrFail($id);
+
+        // $list->beer()->attach($beerId);
+
+        dd($list->beer());
     }
 }

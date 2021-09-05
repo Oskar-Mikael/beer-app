@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="bg-gray-600 min-h-screen">
         <nav>
             <a class="" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
