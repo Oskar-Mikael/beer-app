@@ -31,59 +31,64 @@
                 Add Beer
             </button>
         </form>
-        <table class="mx-auto border-2 border-black text-center my-10">
-            <tr class="border-black border-2 text-xl">
-                <th class="border-black border-r-2 px-4">
-                    @sortablelink('beer')
-                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
-                </th>
-                <th class="border-black border-r-2 px-4">
-                    @sortablelink('rating')
-                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
-                </th>
-                <th class="border-black border-r-2 px-4">
-                    @sortablelink('country')
-                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
-                </th>
-                <th class="border-black border-r-2 px-4">
-                    @sortablelink('type')
-                    <img class="w-4 float-right mt-2" src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png"/>
-                </th>
-            </tr>
-            @foreach ($listBeers as $beer)
-                <tr class="border-black border-2 text-lg">
-                    <td class="border-black border-r-2 px-4 underline hover:no-underline">
-                        <a href="{{ route('beer.show', $beer->id) }}">
-                            {{ $beer->beer }}
-                        </a>
-                    </td>
-                    <td class="border-black border-r-2 px-4">
-                        {{ $beer->rating }}
-                    </td>
-                    <td class="border-black border-r-2 px-4">
-                        {{ $beer->country }}
-                    </td>
-                    <td class="border-black border-r-2 px-4">
-                        {{ $beer->type }}
-                    </td>
-                    <td class="border-black border-r-2 px-4 bg-blue-700">
-                        <a href="{{ route('beer.edit', $beer->id) }}">
-                            Edit
-                        </a>
-                    </td>
-                    <td class="border-black border-r-2 px-4 bg-red-700">
-                        <form method="POST" action="{{ route('list.removeitem', $list->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <input name="beer" hidden value="{{ $beer->id }}" />
-                            <button onclick="return confirm('Are you sure?')" type="submit">
-                                Remove
-                            </button>
-                    </td>
+        <div class="overflow-x-auto">
+            <table style="border-spacing:0" class="mx-auto border-collapse w-full border-2 border-black text-center my-10">
+                <tr class="border-black border-2 text-xl">
+                    <th class="border-black border-r-2 px-4 w-1/4">
+                        @sortablelink('beer')
+                        <img class="w-4 float-right mt-2"
+                            src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png" />
+                    </th>
+                    <th class="border-black border-r-2 px-4">
+                        @sortablelink('rating')
+                        <img class="w-4 float-right mt-2"
+                            src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png" />
+                    </th>
+                    <th class="border-black border-r-2 px-4">
+                        @sortablelink('country')
+                        <img class="w-4 float-right mt-2"
+                            src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png" />
+                    </th>
+                    <th class="border-black border-r-2 px-4">
+                        @sortablelink('type')
+                        <img class="w-4 float-right mt-2"
+                            src="https://www.shareicon.net/data/2015/11/07/668285_arrows_512x512.png" />
+                    </th>
                 </tr>
-            @endforeach
-        </table>
-
+                @foreach ($listBeers as $beer)
+                    <tr class="border-black border-2 text-lg">
+                        <td class="border-black border-r-2 px-4 underline hover:no-underline">
+                            <a href="{{ route('beer.show', $beer->id) }}">
+                                {{ $beer->beer }}
+                            </a>
+                        </td>
+                        <td class="border-black border-r-2 px-4">
+                            {{ $beer->rating }}
+                        </td>
+                        <td class="border-black border-r-2 px-4">
+                            {{ $beer->country }}
+                        </td>
+                        <td class="border-black border-r-2 px-4">
+                            {{ $beer->type }}
+                        </td>
+                        <td class="border-black border-r-2 px-4 bg-blue-700">
+                            <a href="{{ route('beer.edit', $beer->id) }}">
+                                Edit
+                            </a>
+                        </td>
+                        <td class="border-black border-r-2 px-4 bg-red-700">
+                            <form method="POST" action="{{ route('list.removeitem', $list->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <input name="beer" hidden value="{{ $beer->id }}" />
+                                <button onclick="return confirm('Are you sure?')" type="submit">
+                                    Remove
+                                </button>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
 
         @if (session()->has('success'))
             <p class="text-green-400 my-4">{{ Session::get('success') }}</p>
