@@ -21,6 +21,7 @@ class BeerList extends Model
 
     public function beer()
     {
-        return $this->belongsToMany(Beer::class, 'beer_list_pivot', 'beer_id', 'list_id');
+        return $this->belongsToMany(Beer::class, 'beer_list_pivot', 'list_id', 'beer_id')
+        ->withTimestamps();
     }
 }

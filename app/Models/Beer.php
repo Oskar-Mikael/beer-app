@@ -11,6 +11,6 @@ class Beer extends Model
 
     public function list()
     {
-        return $this->belongsToMany(BeerList::class, 'beer_list_pivot', 'list_id', 'beer_id');
+        return $this->belongsToMany(BeerList::class, 'beer_list_pivot', 'beer_id', 'list_id');
     }
 }

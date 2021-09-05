@@ -37,6 +37,6 @@ class BeerController extends Controller
 
         $beer->save();
 
-        return redirect('/profile');
+        return back()->with('success', 'Beer added!');
     }
 }

@@ -16,7 +16,8 @@ class BeerListPivot extends Migration
         Schema::create('beer_list_pivot', function (Blueprint $table) {
             $table->id();
             $table->foreignId('beer_id')->constrained();
-            $table->foreignId('list_id')->constrained();
+            $table->foreignId('list_id')->constrained('beer_lists');
+            $table->timestamps();
         });
     }
 

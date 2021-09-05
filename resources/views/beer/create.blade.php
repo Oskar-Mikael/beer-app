@@ -23,7 +23,10 @@
         <label for="review">
             Review
         </label>
-        <textarea name="review" style="resize:none"></textarea><
-        <button type="submit">Add Beer</button>
+        <textarea name="review" style="resize:none"></textarea>
+        < <button type="submit">Add Beer</button>
     </form>
+    @if (session()->has('success'))
+        <p class="text-green-400">{{ session()->get('success') }}</p>
+    @endif
 @endsection

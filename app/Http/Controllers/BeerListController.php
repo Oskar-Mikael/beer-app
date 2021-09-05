@@ -33,7 +33,7 @@ class BeerListController extends Controller
 
         $list->save();
 
-        return redirect('/profile');
+        return redirect("/list/" . $list->id);
     }
 
     public function addItem(Request $request, $id)
@@ -41,8 +41,8 @@ class BeerListController extends Controller
         $beerId = $request->beer;
         $list = BeerList::findOrFail($id);
 
-        // $list->beer()->attach($beerId);
+        $list->beer()->attach($beerId);
 
-        dd($list->beer());
+        return redirect("/list/" . $list->id);
     }
 }
