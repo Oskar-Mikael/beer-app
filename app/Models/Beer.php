@@ -4,10 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Beer extends Model
 {
     use HasFactory;
+
+    use Sortable;
+
+    public $sortable = [
+        'beer',
+        'rating',
+        'country',
+        'type'
+    ];
 
     public function list()
     {

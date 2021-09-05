@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f92dca6b0b8ca69708e45a35a49e4caf",
+    "content-hash": "e2b5b7e1fad18dd8c4e98f6b71e835af",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -876,6 +876,67 @@
                 "source": "https://github.com/guzzle/psr7/tree/2.0.0"
             },
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "kyslik/column-sortable",
+            "version": "6.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kyslik/column-sortable.git",
+                "reference": "44f9da98acd31b2e871d0074bd638998990888b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kyslik/column-sortable/zipball/44f9da98acd31b2e871d0074bd638998990888b1",
+                "reference": "44f9da98acd31b2e871d0074bd638998990888b1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/support": "5.8.*|^6.0|^7.0|^8.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kyslik\\ColumnSortable\\ColumnSortableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kyslik\\ColumnSortable\\": "src/ColumnSortable/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Kiesel",
+                    "email": "martin.kiesel@gmail.com",
+                    "role": "Developer and maintainer"
+                }
+            ],
+            "description": "Package for handling column sorting in Laravel 6.x",
+            "keywords": [
+                "column",
+                "laravel",
+                "sort",
+                "sortable",
+                "sorting"
+            ],
+            "support": {
+                "issues": "https://github.com/Kyslik/column-sortable/issues",
+                "source": "https://github.com/Kyslik/column-sortable/tree/6.4.1"
+            },
+            "time": "2021-07-09T12:15:54+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5353,6 +5414,73 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "webpatser/laravel-countries",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webpatser/laravel-countries.git",
+                "reference": "9d656c32c3d92333ab00bd87761e8cd1f7245fb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webpatser/laravel-countries/zipball/9d656c32c3d92333ab00bd87761e8cd1f7245fb3",
+                "reference": "9d656c32c3d92333ab00bd87761e8cd1f7245fb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webpatser\\Countries\\CountriesServiceProvider"
+                    ],
+                    "aliases": {
+                        "Countries": "Webpatser\\Countries\\CountriesFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Webpatser\\Countries": "src/"
+                },
+                "classmap": [
+                    "src/commands"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Kempen",
+                    "email": "christoph@downsized.nl",
+                    "homepage": "http://downsized.nl/",
+                    "role": "developer"
+                },
+                {
+                    "name": "Paul Kievits",
+                    "role": "developer"
+                }
+            ],
+            "description": "Laravel Countries is a bundle for Laravel, providing Almost ISO 3166_2, 3166_3, currency, Capital and more for all countries.",
+            "homepage": "https://github.com/webpatser/laravel-countries",
+            "keywords": [
+                "countries",
+                "iso_3166_2",
+                "iso_3166_3",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/webpatser/laravel-countries/issues",
+                "source": "https://github.com/webpatser/laravel-countries"
+            },
+            "time": "2019-07-12T14:06:05+00:00"
         }
     ],
     "packages-dev": [
@@ -7859,7 +7987,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "webpatser/laravel-countries": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -6,14 +6,22 @@ use App\Models\Beer;
 use App\Models\BeerList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BeerListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
     public function show(BeerList $list)
     {
         $beers = Beer::all();
 
-        return view('list.show', compact('list', 'beers'));
+        $listBeers = $list->beer()->sortable()->paginate(5);
+
+        return view('list.show', compact('list', 'beers', 'listBeers'));
     }
 
     public function create()
@@ -43,6 +51,16 @@ class BeerListController extends Controller
 
         $list->beer()->attach($beerId);
 
-        return redirect("/list/" . $list->id);
+        return back()->with('success', 'Beer added');
+    }
+
+    public function removeItem(Request $request, $id)
+    {
+        $beerId = $request->beer;
+        $list = BeerList::findOrFail($id);
+
+        $list->beer()->detach($beerId);
+
+        return back()->with('success', 'Beer deleted');
     }
 }
