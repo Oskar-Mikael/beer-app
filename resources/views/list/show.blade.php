@@ -63,7 +63,7 @@
                             </a>
                         </td>
                         <td class="border-black border-r-2 px-4">
-                            {{ $beer->rating }}
+                            {{ $beer->rating }}/10
                         </td>
                         <td class="border-black border-r-2 px-4">
                             {{ $beer->country }}
