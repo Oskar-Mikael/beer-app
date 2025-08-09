@@ -3,7 +3,7 @@
 @section('content')
     <h2 class="
         md:text-3xl text-xl md:text-left text-center mt-20">
-        Profile of {{ Auth::user()->name }}.
+        Profile of {{ Auth::user()->name }}
     </h2>
     <button class="text-lg mt-6 bg-green-700 px-2 py-1 rounded-md text-white">
         <a href="{{ route('list.create') }}">
